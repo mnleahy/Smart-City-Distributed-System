@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body class="bkgd">
+    <h1><%= title %></h1><br>
+    <div>Please enter the Treatment Plant ID and your Name:</div><br>
+    <form action="/" method="get" class="box">
+      <label for="treatPlantID" class="spacing">Treatment Plant ID</label>
+      <input type="number" name="treatPlantID" id="treatPlantID" class="spacing">
+      <br/>
+      <label for="opName" class="spacing">Your Name</label>
+      <input type="text" name="opName" id="opName" class="spacing">
+      <button type="submit">Get Real-Time Data</button>
+    </form>
+    <div class="box">
+      <% if(typeof message !== 'undefined') { %>
+          <b>NOTE: </b><%= message %>
+      <% } else if (typeof treatPlantID !== 'undefined') { %>
+          <b>Plant ID: </b><%= treatPlantID %> <br>
+          <b>Result: </b><%= result %> milligrams per litre particulate matter<br>
+          <b>Data reported to: </b><%= opName %> <br>
+          <b>Time of Data Reporting: </b><%= timeStamp %> <br>
+      <% } else { %>
+          <div>Stand by for requested data</div>
+      <% } %>
+    </div>
+  </body>
+</html>
+
+<% if(error) { %>
+  <%= error %>
+<% } %>

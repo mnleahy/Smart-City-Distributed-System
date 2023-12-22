@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package transport;
+
+service PublicTransport {
+    // Server-side RPC to request continuous estimated train arrival times
+    rpc trainArrTime(TrainArrivalRequest) returns (stream TrainArrivalResponse) {}
+}
+
+// Proto request and parameters
+message TrainArrivalRequest {
+    uint32 trainNum = 1; // unassigned integer of value 1 in first position of message request
+}
+ 
+// Proto response and parameters
+message TrainArrivalResponse {
+    uint32 arrTime = 1; // unassigned integer of value 2
+}

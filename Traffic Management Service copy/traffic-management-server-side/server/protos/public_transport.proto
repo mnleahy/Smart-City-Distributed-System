@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package transport;
+
+service PublicTransport {
+    // Server-side RPC to request continuous estimated train arrival times
+    rpc trainArrTime(TrainArrivalRequest) returns (stream TrainArrivalResponse) {}
+
+    // Client-side RPC to intermittently send bus passenger numbers to a server
+    rpc busNumbers (stream PassengerData) returns (SuccessMessage) {}
+}
+
+// Client-3: Train Arrival times
+
+// Proto request and parameters
+message TrainArrivalRequest {
+    uint32 trainNum = 1; // unassigned integer of value 1 in first position of message request
+}
+ 
+// Proto response and parameters
+message TrainArrivalResponse {
+    uint32 arrTime = 1; // unassigned integer of value 2
+}
+
+// Client-4: Bus passenger data
+
+// Proto request and parameters
+message PassengerData {
+string timeStamp = 1; // timestamp of the data gathering
+string street = 2; // street name
+uint64 numPass = 3; // number of passengers
+}
+ 
+// Proto response and parameters
+message SuccessMessage {
+string timeStamp = 1; // timestamp of the success message
+string success = 2; // success message once bus reaches final destination
+string street = 3; // street name
+uint64 numPass = 4;
+}         

@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package environmental;
+
+// Message to send light levels data
+message LightData {
+int64 timeStamp = 1; // Time in UTC
+int64 sensorID = 2; // id of the light sensor
+int64 lightAmount = 3; // amount of light per unit area
+}
+ 
+// Message to respond with street light illumination
+message LightIlluminate {
+int64 timestamp = 1; // timestamp of the illumination
+string message = 2; // message that the street lights have been switched on
+}
+ 
+// The service definition
+service EnvManagement {
+    // Client-side RPC to switch on lights in response to natural light data
+    rpc streetLights (stream LightData) returns (LightIlluminate) {}
+}
