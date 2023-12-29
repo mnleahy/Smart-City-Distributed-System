@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package traffic;
+
+// The service definition
+service TrafficManagement {
+    rpc getTrafficDensity(TrafficDensityRequest) returns (stream TrafficDensityResponse);
+    rpc incidentReport(stream IncidentInput) returns (stream IncidentInput);
+}
+
+
+// Client-1: Server-side gRPC streaming of traffic data
+
+// Message for requesting traffic density data
+message TrafficDensityRequest {
+    string opName = 1; // unassigned integer of value 1 in first position of message request
+}
+ 
+// Message for responding with traffic density data
+message TrafficDensityResponse {
+    uint32 area = 1;
+    uint32 noVehicles = 2; // unassigned integer of value 2
+    string congestion = 3; // level of congestion
+}
+ 
+
+// Client-2: Bi-directional Chat Streaming App to report/discuss emergency incidents in the city
+
+// Message to send traffic density data
+message IncidentInput{
+string trafficOfficerID = 1; // ID of traffic officer
+string message = 2; // Comments on the incident
+}

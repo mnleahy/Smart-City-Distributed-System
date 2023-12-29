@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package environmental;
+
+// The service definition
+service EnvManagement {
+    // Unary RPC to request real-time water quality data 
+    rpc waterData (requestWaterData) returns (responseWaterData) {}
+}
+
+// Client-6: Water Quality Spot Checks Unary rpc connection
+
+message requestWaterData {
+int64 treatPlantID = 1; // id of the Water Treatment Plant
+string opName = 2;
+}
+
+message responseWaterData {
+string timeStamp = 1; // Date and Time of reading
+int64 treatPlantID = 2; // id of the Water Treatment Plant
+int64 result = 3;
+string message = 4;
+string opName = 5;
+}
+

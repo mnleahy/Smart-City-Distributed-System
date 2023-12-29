@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package transport;
+
+service PublicTransport {
+    // Client-side RPC to intermittently send bus passenger numbers to a server
+    rpc busNumbers (stream PassengerData) returns (SuccessMessage) {}
+}
+
+// Proto request and parameters
+message PassengerData {
+string timeStamp = 1; // timestamp of the data gathering
+string street = 2; // street name
+uint64 numPass = 3; // number of passengers
+}
+ 
+// Proto response and parameters
+message SuccessMessage {
+string timeStamp = 1; // timestamp of the success message
+string success = 2; // success message once bus reaches final destination
+string street = 3; // street name
+uint64 numPass = 4;
+}  
