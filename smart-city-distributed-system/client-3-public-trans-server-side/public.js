@@ -37,6 +37,6 @@ call.on('end', function(){
 // Error handling when communication from the server fails
 call.on('error', function(e){
     // prints a message to the console with details of the error
-    console.log("AN ERROR OCCURRED. Details available below: \n\n",e);
+    console.log("\nAN ERROR OCCURRED. Details available below: \n\n",e);
     return;
 })

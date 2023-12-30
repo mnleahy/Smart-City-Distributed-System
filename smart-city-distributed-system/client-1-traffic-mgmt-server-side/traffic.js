@@ -23,7 +23,7 @@ console.log("\n REAL-TIME TRAFFIC CONGESTION DATA FOR " + opName + ":\n" )
 // Error handling when communication from the server fails
 call.on('error', function(e){
     // prints a message to the console with details of the error
-    console.log(opName + ", an error occurred. Details available below: \n\n",e);
+    console.log("\n" + opName + ", an error occurred. Details available below: \n\n",e);
     return;
 })
 

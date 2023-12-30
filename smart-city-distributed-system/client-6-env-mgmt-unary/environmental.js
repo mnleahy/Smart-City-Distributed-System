@@ -46,12 +46,12 @@ var treatPlantID = readlineSync.question(
           }
           // if any errors within the callback/server response, print this message
         } catch(e) {
-          console.log("Could not connect to server")
+          console.log("\nAN ERROR OCCURRED AS FOLLOWS: \n\n",e)
         }
       })
       // if the main function cannot be executed, the catch will print an error message
     } catch(e) {
-      console.log("An error occurred", e)
+      console.log("\nAN ERROR OCCURRED AS FOLLOWS: \n\n",e)
     }
   // if treatPlantID is not a number, print an error message
   } else {

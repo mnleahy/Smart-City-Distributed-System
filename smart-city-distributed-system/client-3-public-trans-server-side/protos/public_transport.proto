@@ -14,6 +14,12 @@ message TrainArrivalRequest {
  
 // Proto response and parameters
 message TrainArrivalResponse {
-    uint32 arrTime = 1; // unassigned integer of value 2
+    uint32 arrTime = 1;  
     uint32 trainNum = 2;
 }
+
+
+
+
+
+

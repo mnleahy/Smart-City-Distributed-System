@@ -11,7 +11,7 @@ var client = new public_transport_proto.PublicTransport("0.0.0.0:40001", grpc.cr
 
 
 // Title to print just before the response from server
-console.log("Result of Passenger Number Collection:\n")
+console.log("RESULT OF PASSENGER NUMBER COLLECTION:\n")
 
 /* 
 Call our function on the service. Executes the listener function which is only invoked 
@@ -20,10 +20,9 @@ once our server sends back down the message that the data collection has been su
 
 var call = client.busNumbers(function(error, response) {
     // ERROR HANDLING
-    // if data can't be retrieved from server, print error message to console
+    // if a response can't be retrieved from server, print error message to console
     if(error) {
-        console.log("An error occurred", error);
-        return;
+        console.log("\nAN ERROR OCCURRED AS FOLLOWS: \n\n",error);
     }
     // if server invokes the function and returns a response, print the message
     if (response) {

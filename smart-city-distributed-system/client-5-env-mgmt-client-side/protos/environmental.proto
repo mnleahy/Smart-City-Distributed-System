@@ -19,6 +19,5 @@ int64 lightAmount = 3; // amount of light per unit area
  
 // Message to respond with street light illumination
 message LightIlluminate {
-int64 timestamp = 1; // timestamp of the illumination
-string message = 2; // message that the street lights have been switched on
+string message = 1; // message that the street lights have been switched on
 }

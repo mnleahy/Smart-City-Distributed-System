@@ -13,10 +13,9 @@ var client = new environmental_proto.EnvManagement("0.0.0.0:40000", grpc.credent
 // down the message that the lights have been switched on 
 var call = client.streetLights(function(error, response) {
 
-    // if data can't be retrieveed from server, print error message to console
+    // if a response can't be retrieved from server, print error message to console
     if(error) {
-        console.log("An error occurred");
-        return;
+        console.log("\nAN ERROR OCCURRED AS FOLLOWS: \n\n",error);
     }
     // if server invokes the function and returns a response, print the message
     if (response) {

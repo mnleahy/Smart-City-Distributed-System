@@ -34,8 +34,5 @@ uint64 numPass = 3; // number of passengers
  
 // Proto response and parameters
 message SuccessMessage {
-string timeStamp = 1; // timestamp of the success message
-string success = 2; // success message once bus reaches final destination
-string street = 3; // street name
-uint64 numPass = 4;
+string success = 1; // success message once bus reaches final destination
 }         

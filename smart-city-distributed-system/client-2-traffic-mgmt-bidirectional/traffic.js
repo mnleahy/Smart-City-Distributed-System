@@ -30,7 +30,7 @@ call.on('end', function() {
 
 // Error handling when communication from the server fails
 call.on("error", function(e) {
-    console.log("An error occurred",e)
+    console.log("\nAN ERROR OCCURRED AS FOLLOWS: \n\n",e)
 })
 
 // Obtain user input by asking to detail the emergency and assign to the variable 'message'
